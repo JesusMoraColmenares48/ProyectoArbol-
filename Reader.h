@@ -1,8 +1,11 @@
+#ifndef READER_H
+#define READER_H
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
 #include <sstream>
+#include <algorithm>
 
 using namespace std;
 class Reader{
@@ -46,4 +49,15 @@ class Reader{
 		
 		return lines;
 	};
+
+	bool isAlphabeticallySmaller(string str1, string str2){
+		transform(str1.begin(), str1.end(), str1.begin(), ::toupper);
+		transform(str2.begin(), str2.end(), str2.begin(), ::toupper);
+		if (str1 < str2) {
+			return true;
+		}
+		return false;
+	}
+
 };
+#endif

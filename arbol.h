@@ -1,4 +1,4 @@
-#include <conio.h>
+// #include <conio.h>
 #include <iostream>
 #include <stdlib.h>
 using namespace std;
@@ -36,7 +36,7 @@ Nodo *CrearNodo(int Dato){
 
 Nodo *ABB = NULL;
 
-void Insertar(Nodo *&arbol, int dato){
+void insertar(Nodo *&arbol, int dato){
 	
 	if(arbol == NULL){
 		Nodo *nodo_nuevo = CrearNodo(dato);
@@ -44,16 +44,16 @@ void Insertar(Nodo *&arbol, int dato){
 	}else{
 		int Raiz = arbol->dato;
 		if(dato < Raiz){
-			Insertar(arbol->izquiero,dato);
+			insertar(arbol->izquiero,dato);
 		}else{
-			Insertar(arbol->derecho,dato);
+			insertar(arbol->derecho,dato);
 		}
 	}
 	
 
 }
 
-void Menu(){
+void menu(){
 	int datoIngresado = 0;
 	int opcion = 0;
 	int contador = 0;
@@ -67,7 +67,7 @@ void Menu(){
 		if(opcion == 1){
 			cout<<"ingresa el numero , para el nuevo nodo que deseas ingresar: ";
 			cin>>datoIngresado;
-			Insertar(ABB,datoIngresado);
+			insertar(ABB,datoIngresado);
 		}else{
 			mostrarArbol(ABB,contador);
 		}
@@ -75,9 +75,4 @@ void Menu(){
 }
 
 
-
-int main(){
-	
-	Menu();
-}
 
